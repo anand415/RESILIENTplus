@@ -1,0 +1,254 @@
+!*************************************************************************
+!
+! This is a specially modified version of ga164.f for the SPECOMP2001 
+! benchmark suite.  There is some discusion of this GA in the ReadMe
+! file.  Note that this version has the restart feature disabled and
+! the input file no longer a NAMELIST input.
+!
+! To download the original version 1.6.4, go to website:
+!    <http://cuaerospace.com/carroll/ga.html>
+!
+! This update on 4/14/99.
+!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! David L. Carroll
+! CU Aerospace
+! 2004 South Wright Street Extended
+! Urbana, IL  61802
+!
+! e-mail: carroll@cuaerospace.com
+! Phone:  217-333-8274
+! fax:    217-244-7757
+!
+! This genetic algorithm (GA) driver is free for public use.  My only
+! request is that the user reference and/or acknowledge the use of this
+! driver in any papers/reports/articles which have results obtained
+! from the use of this driver.  I would also appreciate a copy of such
+! papers/articles/reports, or at least an e-mail message with the
+! reference so I can get a copy.  Thanks.
+!
+! This program is a FORTRAN version of a genetic algorithm driver.
+! This code initializes a random sample of individuals with different
+! parameters to be optimized using the genetic algorithm approach, i.e.
+! evolution via survival of the fittest.  The selection scheme used is
+! tournament selection with a shuffling technique for choosing random
+! pairs for mating.  The routine includes binary coding for the
+! individuals, jump mutation, creep mutation, and the option for
+! single-point or uniform crossover.  Niching (sharing) and an option
+! for the number of children per pair of parents has been added.
+! An option to use a micro-GA was recently added.
+!
+! For companies wishing to link this GA driver with an existing code,
+! I am available for some consulting work.  Regardless, I suggest
+! altering this code as little as possible to make future updates
+! easier to incorporate.
+!
+! Any users new to the GA world are encouraged to read David Goldberg's
+! "Genetic Algorithms in Search, Optimization and Machine Learning,"
+! Addison-Wesley, 1989.
+!
+! Other associated files are:  ga.inp (gafort.in)
+!                              ga.out (gafort.out)
+!                              ga.restart (not used in SPEC version)
+!                              params.f (not used in SPEC version)
+!                              ReadMe
+!
+! I have provided a sample subroutine "func", but ultimately
+! the user must supply this subroutine "func" which should be your
+! cost function.  You should be able to run the code with the
+! sample subroutine "func" and the provided ga.inp file and obtain
+! the optimal function value of 1.0 at generation 97 with the
+! uniform crossover micro-GA enabled (this is 485 function evaluations).
+!
+! The code is presently set for a maximum population size of 200,
+! 30 chromosomes (binary bits) and 8 parameters.  These values can be
+! changed in params.f as appropriate for your problem.  Correspondingly
+! you will have to change a few 'write' and 'format' statements if you
+! change nchrome and/or nparam.  In particular, if you change nchrome
+! and/or nparam, then you should change the 'format' statement numbers
+! 1050, 1075, 1275, and 1500 (see ReadMe file).
+!
+! Please feel free to contact me with questions, comments, or errors
+! (hopefully none of latter).
+!
+! Disclaimer:  this program is not guaranteed to be free of error
+! (although it is believed to be free of error), therefore it should
+! not be relied on for solving problems where an error could result in
+! injury or loss.  If this code is used for such solutions, it is
+! entirely at the user's risk and the author disclaims all liability.
+!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! Input variable definitions:
+!
+! icreep   = 0 for no creep mutations
+!          = 1 for creep mutations; creep mutations are recommended.
+! idum     The initial random number seed for the GA run.  Must equal
+!          a negative integer, e.g. idum=-1000.
+! ielite   = 0 for no elitism (best individual not necessarily
+!              replicated from one generation to the next).
+!          = 1 for elitism to be invoked (best individual replicated
+!              into next generation); elitism is recommended.
+! iend         = 0 for normal GA run (this is standard).
+!          = number of last population member to be looked at in a set
+!            of individuals.  Setting iend-0 is only used for debugging
+!            purposes and is commonly used in conjunction with iskip.
+! iniche   = 0 for no niching
+!          = 1 for niching; niching is recommended.
+! irestrt  = 0 for a new GA run, or for a single function evaluation
+!          = 1 for a restart continuation of a GA run.
+! iskip    = 0 for normal GA run (this is standard).
+!          = number in population to look at a specific individual or
+!            set of individuals.  Setting iskip-0 is only used for
+!            debugging purposes.
+! itourny  No longer used.  The GA is presently set up for only
+!          tournament selection.
+! iunifrm  = 0 for single-point crossover
+!          = 1 for uniform crossover; uniform crossover is recommended.
+! kountmx  = the maximum value of kount before a new restart file is
+!            written; presently set to write every fifth generation.
+!            Increasing this value will reduce I/O time requirements
+!            and reduce wear and tear on your storage device
+! maxgen   The maximum number of generations to run by the GA.
+!          For a single function evaluation, set equal to 1.
+! microga  = 0 for normal conventional GA operation
+!          = 1 for micro-GA operation (this will automatically reset
+!            some of the other input flags).  I recommend using
+!            npopsiz=5 when microga=1.
+! nchild   = 1 for one child per pair of parents (this is what I
+!              typically use). This code is written to use 1 child.
+!          = 2 for two children per pair of parents (2 is more common
+!              in GA work).
+! nichflg  = array of 1/0 flags for whether or not niching occurs on
+!            a particular parameter.  Set to 0 for no niching on
+!            a parameter, set to 1 for niching to operate on parameter.
+!            The default value is 1, but the implementation of niching
+!            is still controlled by the flag iniche.
+! nowrite  = 0 to write detailed mutation and parameter adjustments
+!          = 1 to not write detailed mutation and parameter adjustments
+! nparam   Number of parameters (groups of bits) of each individual.
+!          Make sure that nparam matches the number of values in the
+!          parmin, parmax and nposibl input arrays.
+! npopsiz  The population size of a GA run (typically 100 works well).
+!          For a single calculation, set equal to 1.
+! nposibl  = array of integer number of possibilities per parameter.
+!            For optimal code efficiency set nposibl=2**n, i.e. 2, 4,
+!            8, 16, 32, 64, etc.
+! parmax   = array of the maximum allowed values of the parameters
+! parmin   = array of the minimum allowed values of the parameters
+! pcreep   The creep mutation probability.  Typically set this
+!          = (nchrome/nparam)/npopsiz.
+! pcross   The crossover probability.  For single-point crossover, a
+!          value of 0.6 or 0.7 is recommended.  For uniform crossover,
+!          a value of 0.5 is suggested.
+! pmutate  The jump mutation probability.  Typically set = 1/npopsiz.
+!
+!
+! For single function evaluations, set npopsiz=1, maxgen=1, & irestrt=0.
+!
+! My favorite initial choices of GA parameters are:
+!    microga=1, npopsiz=5, inunifrm=1, maxgen=100
+!    microga=1, npopsiz=5, inunifrm=0, maxgen=100
+! I generally get good performance with both the uniform and single-
+! point crossover micro-GA.
+!
+! For those wishing to use the more conventional GA techniques,
+! my old favorite choice of GA parameters was:
+!    iunifrm=1, iniche=1, ielite=1, itourny=1, nchild=1
+! For most problems I have dealt with, I get good performance using
+!    npopsiz=100, pcross=0.5, pmutate=0.01, pcreep=0.02, maxgen=26
+! or
+!    npopsiz= 50, pcross=0.5, pmutate=0.02, pcreep=0.04, maxgen=51
+!
+! Any negative integer for idum should work.  I typically arbitrarily
+! choose idum=-10000 or -20000.
+!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! Code variable definitions (those not defined above):
+!
+! best     = the best fitness of the generation
+! child    = the floating point parameter array of the children
+! cpu      = cpu time of the calculation
+! creep    = +1 or -1, indicates which direction parameter creeps
+! delta    = del/nparam
+! diffrac  = fraction of total number of bits which are different
+!            between the best and the rest of the micro-GA population.
+!            Population convergence arbitrarily set as diffrac<0.05.
+! fbar     = average fitness of population
+! fitness  = array of fitnesses of the parents
+! fitsum   = sum of the fitnesses of the parents
+! g0       = lower bound values of the parameter array to be optimized.
+!            The number of parameters in the array should match the
+!            dimension set in the above parameter statement.
+! g1       = the increment by which the parameter array is increased
+!            from the lower bound values in the g0 array.  The minimum
+!            parameter value is g0 and the maximum parameter value
+!            equals g0+g1*(2**g2-1), i.e. g1 is the incremental value
+!            between min and max.
+! ig2      = array of the number of bits per parameter, i.e. the number
+!            of possible values per parameter.  For example, ig2=2 is
+!            equivalent to 4 (=2**2) possibilities, ig2=4 is equivalent
+!            to 16 (=2**4) possibilities.
+! ig2sum   = sum of the number of possibilities of ig2 array
+! ibest    = binary array of chromosomes of the best individual
+! ichild   = binary array of chromosomes of the children
+! icount   = counter of number of different bits between best
+!            individual and other members of micro-GA population
+! icross   = the crossover point in single-point crossover
+! indmax   = maximum # of individuals allowed, i.e. max population size
+! iparent  = binary array of chromosomes of the parents
+! istart   = the generation to be started from
+! jbest    = the member in the population with the best fitness
+! jelite   = a counter which tracks the number of bits of an individual
+!             which match those of the best individual
+! jend     = used in conjunction with iend for debugging
+! jstart   = used in conjunction with iskip for debugging
+! kount    = a counter which controls how frequently the restart
+!            file is written
+! kelite   = kelite set to unity when jelite=nchrome, indicates that
+!            the best parent was replicated amongst the children
+! mate1    = the number of the population member chosen as mate1
+! mate2    = the number of the population member chosen as mate2
+! nchrmax  = maximum # of chromosomes (binary bits) per individual
+! nchrome  = number of chromosomes (binary bits) of each individual
+! ncreep   = # of creep mutations which occurred during reproduction
+! nmutate  = # of jump mutations which occurred during reproduction
+! nparmax  = maximum # of parameters which the chromosomes make up
+! paramav  = the average of each parameter in the population
+! paramsm  = the sum of each parameter in the population
+! parent   = the floating point parameter array of the parents
+! pardel   = array of the difference between parmax and parmin
+! rand     = the value of the current random number
+! npossum  = sum of the number of possible values of all parameters
+! time0    = clock time at start of run
+!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!
+! Subroutines:
+! ____________
+!
+! code     = Codes floating point value to binary string.
+! crosovr  = Performs crossover (single-point or uniform). This is inlined.
+!	     It is no longer called from main generation loop (compiler issue!).
+! decode   = Decodes binary string to floating point value.
+! evalout  = Evaluates the fitness of each individual and outputs
+!            generational information to the 'ga.out' file.
+! func     = The function which is being evaluated.
+! gamicro  = Implements the micro-GA technique.
+! input    = Inputs information from the 'ga.inp' file.
+! initial  = Program initialization and inputs information from the
+!            'ga.restart' file.
+! mutate   = Performs mutation (jump and/or creep).
+! newgen   = Writes child array back into parent array for new
+!            generation; also checks to see if best individual was
+!            replicated (elitism).
+! niche    = Performs niching (sharing) on population.
+! possibl  = Checks to see if decoded binary string falls within
+!            specified range of parmin and parmax.
+! ran3     = The random number generator.
+! restart  = Writes the 'ga.restart' file.
+! selectn  = Performs selection; tournament selection is the only
+!            option in this version of the code. This is inlined. No
+!	     longer called from the main generation loop (compiler issue!).
+! shuffle  = Shuffles the population randomly for selection.
+!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

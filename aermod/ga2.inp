@@ -1,0 +1,10 @@
+ $ga
+ npopsiz=100,
+ pmutate=0.01d0,
+ maxgen=20,
+ idum=-1000,
+ pcross=0.5	,
+ ielite=1,
+ nchild=1,
+ microga=0,
+ $end

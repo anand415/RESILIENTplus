@@ -1,0 +1,133 @@
+make: Entering directory '/home/anand/Documents/MS_AE/aermod_main'
+rm -f aermod modules.o modules2.o aermod.o calc1.o calc2.o coset.o evcalc.o evoutput.o evset.o iblval.o inpsum.o meset.o metext.o ouset.o output.o pitarea.o prime.o prise.o reset.o setup.o siggrid.o sigmas.o soset.o tempgrid.o evalsec.o windgrid.o uninam.o rline.o *.mod
+make: Leaving directory '/home/anand/Documents/MS_AE/aermod_main'
+make: Entering directory '/home/anand/Documents/MS_AE/aermod_main'
+gfortran -O3 -w  -c -o modules.o modules.f
+gfortran -O3 -w  -c -o modules2.o modules2.f
+gfortran -O3 -w  -c -o aermod.o aermod.f
+gfortran -O3 -w  -c -o calc1.o calc1.f
+gfortran -O3 -w  -c -o calc2.o calc2.f
+gfortran -O3 -w  -c -o coset.o coset.f
+gfortran -O3 -w  -c -o evcalc.o evcalc.f
+gfortran -O3 -w  -c -o evoutput.o evoutput.f
+gfortran -O3 -w  -c -o evset.o evset.f
+gfortran -O3 -w  -c -o iblval.o iblval.f
+gfortran -O3 -w  -c -o inpsum.o inpsum.f
+gfortran -O3 -w  -c -o meset.o meset.f
+gfortran -O3 -w  -c -o metext.o metext.f
+gfortran -O3 -w  -c -o ouset.o ouset.f
+gfortran -O3 -w  -c -o output.o output.f
+gfortran -O3 -w  -c -o pitarea.o pitarea.f
+gfortran -O3 -w  -c -o prime.o prime.f
+gfortran -O3 -w  -c -o prise.o prise.f
+gfortran -O3 -w  -c -o reset.o reset.f
+gfortran -O3 -w  -c -o setup.o setup.f
+gfortran -O3 -w  -c -o siggrid.o siggrid.f
+gfortran -O3 -w  -c -o sigmas.o sigmas.f
+gfortran -O3 -w  -c -o soset.o soset.f
+gfortran -O3 -w  -c -o tempgrid.o tempgrid.f
+gfortran -O3 -w  -c -o evalsec.o evalsec.f
+gfortran -O3 -w  -c -o windgrid.o windgrid.f
+gfortran -O3 -w  -c -o uninam.o uninam.f
+gfortran -O3 -w  -c -o rline.o rline.f
+gfortran  -O3 -w -o aermod modules.o modules2.o aermod.o calc1.o calc2.o coset.o evcalc.o evoutput.o evset.o iblval.o inpsum.o meset.o metext.o ouset.o output.o pitarea.o prime.o prise.o reset.o setup.o siggrid.o sigmas.o soset.o tempgrid.o evalsec.o windgrid.o uninam.o rline.o 
+make: Leaving directory '/home/anand/Documents/MS_AE/aermod_main'
+removed 'core01/AERMET.SFC'
+removed 'core01/AERMET.PFL'
+removed 'core01/aermod.inp'
+removed 'core01/aermod.out'
+removed 'core01/aermod'
+removed 'core01/mse'
+removed directory 'core01'
+removed 'core02/AERMET.SFC'
+removed 'core02/AERMET.PFL'
+removed 'core02/aermod.inp'
+removed 'core02/aermod.out'
+removed 'core02/aermod'
+removed 'core02/mse'
+removed directory 'core02'
+removed 'core03/AERMET.SFC'
+removed 'core03/AERMET.PFL'
+removed 'core03/aermod.inp'
+removed 'core03/aermod.out'
+removed 'core03/aermod'
+removed 'core03/mse'
+removed directory 'core03'
+removed 'core04/AERMET.SFC'
+removed 'core04/AERMET.PFL'
+removed 'core04/aermod.inp'
+removed 'core04/aermod.out'
+removed 'core04/aermod'
+removed 'core04/mse'
+removed directory 'core04'
+cp: cannot stat 'pmatt_13c1_bin': No such file or directory
+cp: cannot stat 'pmatt_13c1_bin': No such file or directory
+cp: cannot stat 'pmatt_13c1_bin': No such file or directory
+cp: cannot stat 'pmatt_13c1_bin': No such file or directory
+make: Entering directory '/home/anand/Documents/MS_AE/aermod'
+rm -f aermod modules.o modules2.o aermod.o calc1.o calc2.o coset.o evcalc.o evoutput.o evset.o iblval.o inpsum.o meset.o metext.o ouset.o output.o pitarea.o prime.o prise.o reset.o setup.o siggrid.o sigmas.o soset.o tempgrid.o evalsec.o windgrid.o uninam.o rline.o *.mod
+make: Leaving directory '/home/anand/Documents/MS_AE/aermod'
+make: Entering directory '/home/anand/Documents/MS_AE/aermod'
+gfortran -O3 -w  -c -o modules.o modules.f
+gfortran -O3 -w  -c -o modules2.o modules2.f
+gfortran -O3 -w  -c -o aermod.o aermod.f
+gfortran -O3 -w  -c -o calc1.o calc1.f
+gfortran -O3 -w  -c -o calc2.o calc2.f
+gfortran -O3 -w  -c -o coset.o coset.f
+gfortran -O3 -w  -c -o evcalc.o evcalc.f
+gfortran -O3 -w  -c -o evoutput.o evoutput.f
+gfortran -O3 -w  -c -o evset.o evset.f
+gfortran -O3 -w  -c -o iblval.o iblval.f
+gfortran -O3 -w  -c -o inpsum.o inpsum.f
+gfortran -O3 -w  -c -o meset.o meset.f
+gfortran -O3 -w  -c -o metext.o metext.f
+gfortran -O3 -w  -c -o ouset.o ouset.f
+gfortran -O3 -w  -c -o output.o output.f
+gfortran -O3 -w  -c -o pitarea.o pitarea.f
+gfortran -O3 -w  -c -o prime.o prime.f
+gfortran -O3 -w  -c -o prise.o prise.f
+gfortran -O3 -w  -c -o reset.o reset.f
+gfortran -O3 -w  -c -o setup.o setup.f
+gfortran -O3 -w  -c -o siggrid.o siggrid.f
+gfortran -O3 -w  -c -o sigmas.o sigmas.f
+gfortran -O3 -w  -c -o soset.o soset.f
+gfortran -O3 -w  -c -o tempgrid.o tempgrid.f
+gfortran -O3 -w  -c -o evalsec.o evalsec.f
+gfortran -O3 -w  -c -o windgrid.o windgrid.f
+gfortran -O3 -w  -c -o uninam.o uninam.f
+gfortran -O3 -w  -c -o rline.o rline.f
+gfortran  -O3 -w -o aermod modules.o modules2.o aermod.o calc1.o calc2.o coset.o evcalc.o evoutput.o evset.o iblval.o inpsum.o meset.o metext.o ouset.o output.o pitarea.o prime.o prise.o reset.o setup.o siggrid.o sigmas.o soset.o tempgrid.o evalsec.o windgrid.o uninam.o rline.o 
+make: Leaving directory '/home/anand/Documents/MS_AE/aermod'
+rm -f armd *.o *.mod
+gfortran -Ofast -fopenmp -g -ffpe-trap=zero,overflow,underflow,invalid  -c -o GA_openmp.o GA_openmp.f90
+gfortran -Ofast -fopenmp -g -ffpe-trap=zero,overflow,underflow,invalid  -c -o crosnmuts8.o crosnmuts8.f90
+gfortran -Ofast -fopenmp -g -ffpe-trap=zero,overflow,underflow,invalid  -c -o train_test.o train_test.f90
+gfortran -Ofast -fopenmp -g -ffpe-trap=zero,overflow,underflow,invalid  -c -o GA_openmp2.o GA_openmp2.f90
+gfortran -Ofast -fopenmp -g -ffpe-trap=zero,overflow,underflow,invalid  -c -o initial3_s8.o initial3_s8.f90
+gfortran -Ofast -fopenmp -g -ffpe-trap=zero,overflow,underflow,invalid  -c -o GA_openmp3.o GA_openmp3.f90
+gfortran -Ofast -fopenmp -g -ffpe-trap=zero,overflow,underflow,invalid  -c -o selecnnewgen.o selecnnewgen.f90
+selecnnewgen.f90:12:21:
+
+    call select(mate1,ipick)
+                     1
+Warning: Dummy argument ‘ipick’ with INTENT(IN) in variable definition context (actual argument to INTENT = OUT/INOUT) at (1)
+selecnnewgen.f90:13:21:
+
+    call select(mate2,ipick)
+                     1
+Warning: Dummy argument ‘ipick’ with INTENT(IN) in variable definition context (actual argument to INTENT = OUT/INOUT) at (1)
+gfortran -Ofast -fopenmp -g -ffpe-trap=zero,overflow,underflow,invalid  -c -o evals8.o evals8.f90
+evals8.f90:57:8:
+
+ fitness(mse(1,j))=mse(2,j)
+        1
+Warning: Legacy Extension: REAL array index at (1)
+gfortran -Ofast -fopenmp -g -ffpe-trap=zero,overflow,underflow,invalid  -c -o initials8.o initials8.f90
+gfortran -Ofast -fopenmp -g -ffpe-trap=zero,overflow,underflow,invalid  -c -o crosnmut2_s8.o crosnmut2_s8.f90
+gfortran -Ofast -fopenmp -g -ffpe-trap=zero,overflow,underflow,invalid  -c -o crosnmut3_s8.o crosnmut3_s8.f90
+gfortran -Ofast -fopenmp -g -ffpe-trap=zero,overflow,underflow,invalid  -c -o initial2_s8.o initial2_s8.f90
+gfortran -Ofast -fopenmp -g -ffpe-trap=zero,overflow,underflow,invalid  -c -o randgen.o randgen.f90
+gfortran -Ofast -fopenmp -g -ffpe-trap=zero,overflow,underflow,invalid  -c -o testing_s8.o testing_s8.f90
+gfortran -Ofast -fopenmp -g -ffpe-trap=zero,overflow,underflow,invalid  -o armd GA_openmp.o crosnmuts8.o  train_test.o GA_openmp2.o initial3_s8.o  GA_openmp3.o    selecnnewgen.o evals8.o initials8.o  crosnmut2_s8.o   crosnmut3_s8.o   initial2_s8.o randgen.o testing_s8.o
+rm: cannot remove 'msd_tst': No such file or directory
+rm: cannot remove 'msd_tr': No such file or directory

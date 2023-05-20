@@ -1,0 +1,187 @@
+ *** AERMOD - VERSION  19191 ***   *** my_site                                                              ***        12/02/19
+ *** AERMET - VERSION  14134 ***   ***                                                                      ***        23:18:19
+                                                                                                                       PAGE   1
+ *** MODELOPTs:    NonDFAULT  CONC  FLAT  RURAL  SigA&SigW
+
+                                            ***     MODEL SETUP OPTIONS SUMMARY       ***
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+ **Model Is Setup For Calculation of Average CONCentration Values.
+  
+   --  DEPOSITION LOGIC  --
+ **NO GAS DEPOSITION Data Provided.
+ **NO PARTICLE DEPOSITION Data Provided.
+ **Model Uses NO DRY DEPLETION.  DRYDPLT  =  F
+ **Model Uses NO WET DEPLETION.  WETDPLT  =  F
+  
+ **Model Uses RURAL Dispersion Only.
+  
+ **Model Allows User-Specified Options:
+         1. Stack-tip Downwash.
+         2. Model Assumes Receptors on FLAT Terrain.
+         3. Use Calms Processing Routine.
+         4. Use Missing Data Processing Routine.
+         5. No Exponential Decay.
+  
+ **Model Assumes No FLAGPOLE Receptor Heights.
+  
+ **The User Specified a Pollutant Type of:  SO2     
+
+ **NOTE: Special processing requirements applicable for the 1-hour SO2 NAAQS have been disabled!!!
+         User has specified non-standard averaging periods:                               
+         High ranked 1-hour values are NOT averaged across the number of years modeled, and
+         complete years of data are NOT required.
+  
+ **Model Calculates PERIOD Averages Only
+  
+ **This Run Includes:      1 Source(s);       1 Source Group(s); and     900 Receptor(s)
+
+                with:      1 POINT(s), including
+                           0 POINTCAP(s) and      0 POINTHOR(s)
+                 and:      0 VOLUME source(s)
+                 and:      0 AREA type source(s)
+                 and:      0 LINE source(s)
+                 and:      0 RLINE/RLINEXT source(s)
+                 and:      0 OPENPIT source(s)
+                 and:      0 BUOYANT LINE source(s) with      0 line(s)
+
+  
+ **Model Set To Continue RUNning After the Setup Testing.
+
+ **The AERMET Input Meteorological Data Version Date:  14134
+  
+ **Output Options Selected:
+          Model Outputs Tables of PERIOD Averages by Receptor
+          Model Outputs Separate Summary File of High Ranked Values (SUMMFILE Keyword)
+  
+ **NOTE:  The Following Flags May Appear Following CONC Values:  c for Calm Hours
+                                                                 m for Missing Hours
+                                                                 b for Both Calm and Missing Hours
+  
+ **Misc. Inputs:  Base Elev. for Pot. Temp. Profile (m MSL) =    10.00 ;  Decay Coef. =    0.000     ;  Rot. Angle =     0.0
+                  Emission Units = GRAMS/SEC                                ;  Emission Rate Unit Factor =   0.10000E+07
+                  Output Units   = MICROGRAMS/M**3                         
+  
+ **Approximate Storage Requirements of Model =      3.6 MB of RAM.
+  
+ **Input Runstream File:          aermod.inp                                                                                      
+ **Output Print File:             aermod.out                                                                                      
+
+ **Detailed Error/Message File:   resileint_PG.err                                                                                
+ **File for Summary of Results:   resileint_PG.sum                                                                                
+ *** AERMOD - VERSION  19191 ***   *** my_site                                                              ***        12/02/19
+ *** AERMET - VERSION  14134 ***   ***                                                                      ***        23:18:19
+                                                                                                                       PAGE   2
+ *** MODELOPTs:    NonDFAULT  CONC  FLAT  RURAL  SigA&SigW
+
+                                            *** METEOROLOGICAL DAYS SELECTED FOR PROCESSING ***
+                                                               (1=YES; 0=NO)
+
+            1 1 1 1 1 1 1 1 1 1   1 1 1 1 1 1 1 1 1 1   1 1 1 1 1 1 1 1 1 1   1 1 1 1 1 1 1 1 1 1   1 1 1 1 1 1 1 1 1 1
+            1 1 1 1 1 1 1 1 1 1   1 1 1 1 1 1 1 1 1 1   1 1 1 1 1 1 1 1 1 1   1 1 1 1 1 1 1 1 1 1   1 1 1 1 1 1 1 1 1 1
+            1 1 1 1 1 1 1 1 1 1   1 1 1 1 1 1 1 1 1 1   1 1 1 1 1 1 1 1 1 1   1 1 1 1 1 1 1 1 1 1   1 1 1 1 1 1 1 1 1 1
+            1 1 1 1 1 1 1 1 1 1   1 1 1 1 1 1 1 1 1 1   1 1 1 1 1 1 1 1 1 1   1 1 1 1 1 1 1 1 1 1   1 1 1 1 1 1 1 1 1 1
+            1 1 1 1 1 1 1 1 1 1   1 1 1 1 1 1 1 1 1 1   1 1 1 1 1 1 1 1 1 1   1 1 1 1 1 1 1 1 1 1   1 1 1 1 1 1 1 1 1 1
+            1 1 1 1 1 1 1 1 1 1   1 1 1 1 1 1 1 1 1 1   1 1 1 1 1 1 1 1 1 1   1 1 1 1 1 1 1 1 1 1   1 1 1 1 1 1 1 1 1 1
+            1 1 1 1 1 1 1 1 1 1   1 1 1 1 1 1 1 1 1 1   1 1 1 1 1 1 1 1 1 1   1 1 1 1 1 1 1 1 1 1   1 1 1 1 1 1 1 1 1 1
+            1 1 1 1 1 1 1 1 1 1   1 1 1 1 1 1
+
+                NOTE:  METEOROLOGICAL DATA ACTUALLY PROCESSED WILL ALSO DEPEND ON WHAT IS INCLUDED IN THE DATA FILE.
+
+
+
+                                  *** UPPER BOUND OF FIRST THROUGH FIFTH WIND SPEED CATEGORIES ***
+                                                            (METERS/SEC)
+
+                                                 1.54,   3.09,   5.14,   8.23,  10.80,
+ *** AERMOD - VERSION  19191 ***   *** my_site                                                              ***        12/02/19
+ *** AERMET - VERSION  14134 ***   ***                                                                      ***        23:18:19
+                                                                                                                       PAGE   3
+ *** MODELOPTs:    NonDFAULT  CONC  FLAT  RURAL  SigA&SigW
+
+                                    *** UP TO THE FIRST 24 HOURS OF METEOROLOGICAL DATA ***
+
+   Surface file:   PGRSURF2.SFC                                                                       Met Version:  14134
+   Profile file:   PFL2517.PFL                                                                     
+   Surface format: FREE                                                                                                     
+   Profile format: FREE                                                                                                     
+   Surface station no.:    24023                  Upper air station no.:    24023
+                  Name: NORTH_PLATTE/LEE_BIRD_FLD                  Name: NORTH_PLATTE/LEE_BIRD_FLD               
+                  Year:   1956                                     Year:   1956
+
+ First 24 hours of scalar data
+ YR MO DY JDY HR     H0     U*     W*  DT/DZ ZICNV ZIMCH  M-O LEN    Z0  BOWEN ALBEDO  REF WS   WD     HT  REF TA     HT
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ 56 08 25 238 17   96.5  0.460  1.707  0.005 1683.  717.   -194.0  0.01   0.75   0.28    6.42  185.    1.0  307.3    1.0
+
+
+ First hour of profile data
+ YR MO DY HR HEIGHT F  WDIR    WSPD AMB_TMP sigmaA  sigmaW  sigmaV
+ 56 08 25 17    1.0 0  185.    6.42   307.4 -999.0  -99.00  -99.00
+ 56 08 25 17    2.0 0 -999.    7.20   307.3    8.0    0.57    1.00
+ 56 08 25 17    4.0 0 -999.    8.24   307.1 -999.0  -99.00  -99.00
+ 56 08 25 17    8.0 0 -999.    8.79   307.0 -999.0  -99.00  -99.00
+ 56 08 25 17   16.0 1 -999.    9.89   306.7 -999.0  -99.00  -99.00
+
+ F indicates top of profile (=1) or below (=0)
+ *** AERMOD - VERSION  19191 ***   *** my_site                                                              ***        12/02/19
+ *** AERMET - VERSION  14134 ***   ***                                                                      ***        23:18:19
+                                                                                                                       PAGE   4
+ *** MODELOPTs:    NonDFAULT  CONC  FLAT  RURAL  SigA&SigW
+
+                                        *** THE SUMMARY OF MAXIMUM PERIOD (     1 HRS) RESULTS ***
+
+
+                                    ** CONC OF SO2      IN MICROGRAMS/M**3                          **
+
+                                                                                                             NETWORK
+GROUP ID                       AVERAGE CONC                RECEPTOR  (XR, YR, ZELEV, ZHILL, ZFLAG)  OF TYPE  GRID-ID
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+ALL       1ST HIGHEST VALUE IS  205153.27914 AT (       4.36,       49.81,    10.00,    10.00,    0.00)  GP  UPOL1   
+          2ND HIGHEST VALUE IS  203165.80457 AT (       3.49,       49.88,    10.00,    10.00,    0.00)  GP  UPOL1   
+          3RD HIGHEST VALUE IS  203165.80457 AT (       5.23,       49.73,    10.00,    10.00,    0.00)  GP  UPOL1   
+          4TH HIGHEST VALUE IS  197314.09365 AT (       2.62,       49.93,    10.00,    10.00,    0.00)  GP  UPOL1   
+          5TH HIGHEST VALUE IS  197314.09365 AT (       6.09,       49.63,    10.00,    10.00,    0.00)  GP  UPOL1   
+          6TH HIGHEST VALUE IS  187920.46929 AT (       1.74,       49.97,    10.00,    10.00,    0.00)  GP  UPOL1   
+          7TH HIGHEST VALUE IS  187920.46929 AT (       6.96,       49.51,    10.00,    10.00,    0.00)  GP  UPOL1   
+          8TH HIGHEST VALUE IS  175490.57885 AT (       0.87,       49.99,    10.00,    10.00,    0.00)  GP  UPOL1   
+          9TH HIGHEST VALUE IS  175490.57885 AT (       7.82,       49.38,    10.00,    10.00,    0.00)  GP  UPOL1   
+         10TH HIGHEST VALUE IS  160669.95352 AT (      -0.00,       50.00,    10.00,    10.00,    0.00)  GP  UPOL1   
+
+
+ *** RECEPTOR TYPES:  GC = GRIDCART
+                      GP = GRIDPOLR
+                      DC = DISCCART
+                      DP = DISCPOLR
+ *** AERMOD - VERSION  19191 ***   *** my_site                                                              ***        12/02/19
+ *** AERMET - VERSION  14134 ***   ***                                                                      ***        23:18:19
+                                                                                                                       PAGE   5
+ *** MODELOPTs:    NonDFAULT  CONC  FLAT  RURAL  SigA&SigW
+
+ *** Message Summary : AERMOD Model Execution ***
+
+  --------- Summary of Total Messages --------
+  
+ A Total of            0 Fatal Error Message(s)
+ A Total of            6 Warning Message(s)
+ A Total of            0 Informational Message(s)
+
+ A Total of            1 Hours Were Processed
+
+ A Total of            0 Calm Hours Identified
+
+ A Total of            0 Missing Hours Identified (  0.00 Percent)
+  
+  
+    ******** FATAL ERROR MESSAGES ******** 
+               ***  NONE  ***         
+  
+  
+    ********   WARNING MESSAGES   ******** 
+ MX W403      30       PFLCNV: Turbulence data is being used w/o ADJ_U* option     SigA & SigW
+ MX W403      30       PFLCNV: Turbulence data is being used w/o ADJ_U* option     SigA & SigW
+ MX W403      30       PFLCNV: Turbulence data is being used w/o ADJ_U* option     SigA & SigW
+ MX W403      30       PFLCNV: Turbulence data is being used w/o ADJ_U* option     SigA & SigW
+ MX W394       1       METEXT: Met data may be from outdated version of AERMET:     No NAD/ADJ
+ MX W403       1       PFLCNV: Turbulence data is being used w/o ADJ_U* option     SigA & SigW

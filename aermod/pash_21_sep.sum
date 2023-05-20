@@ -1,0 +1,20 @@
+ *** AERMOD - VERSION  19191 ***   *** my_site                                                              ***        12/02/19
+ *** AERMET - VERSION  14134 ***   ***                                                                      ***        22:37:34
+                                                                                                                       PAGE   1
+ *** MODELOPTs:  
+
+ *** Message Summary : AERMOD Model Execution ***
+
+  --------- Summary of Total Messages --------
+  
+ A Total of            1 Fatal Error Message(s)
+ A Total of            2 Warning Message(s)
+ A Total of            0 Informational Message(s)
+  
+  
+    ******** FATAL ERROR MESSAGES ******** 
+ ME E500      29       MEOPEN: Fatal Error Occurs Opening the Data File of            PROFFILE
+  
+    ********   WARNING MESSAGES   ******** 
+ ME W530      29       MEOPEN: CAUTION! Met Station ID Mismatch with SURFFILE for     SURFDATA
+ ME W530      29       MEOPEN: CAUTION! Met Station ID Mismatch with SURFFILE for     UAIRDATA

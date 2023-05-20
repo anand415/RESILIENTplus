@@ -1,0 +1,22 @@
+ 
+To get started, type doc.
+For product information, visit www.mathworks.com.
+ 
+
+ii =
+
+     1
+
+Optimization terminated: average change in the fitness value less than options.FunctionTolerance.
+
+ii =
+
+     2
+
+Optimization terminated: average change in the fitness value less than options.FunctionTolerance.
+
+ii =
+
+     3
+
+Optimization terminated: average change in the fitness value less than options.FunctionTolerance.

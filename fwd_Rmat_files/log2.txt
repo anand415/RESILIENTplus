@@ -1,0 +1,11 @@
+ 
+To get started, type doc.
+For product information, visit www.mathworks.com.
+ 
+{Error using optimoptions (line 124)
+Invalid solver specified. Provide a solver name or handle (such as 'fmincon' or @fminunc).
+Type DOC OPTIMOPTIONS for a list of solvers.
+
+Error in lpocv_ga (line 31)
+options = optimoptions('ga','MaxGenerations', 5000,'FunctionTolerance',1e-6);
+} 

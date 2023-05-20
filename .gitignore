@@ -1,0 +1,7 @@
+*.mat
+*.kml
+*.png
+*.eps
+*.pdf
+*.fig
+aermod_*

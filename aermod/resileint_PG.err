@@ -1,0 +1,19 @@
+  
+    ************ Error Message List *************
+  
+    PW     --- Pathway                           
+    Code   --- Error Type + Error Code           
+    L#     --- The Line Number Where Error Occurs
+    ModNam --- Module Name In Which Error Occurs 
+    Hints  --- Hints For The Possible Solution   
+    *********************************************
+  
+PW CODE    L#      MODNAM                       ERROR MESSAGES                      HINTS
+-- ---- ------- ------------- -------------------------------------------------- ------------
+  
+MX W403      30       PFLCNV: Turbulence data is being used w/o ADJ_U* option     SigA & SigW
+MX W403      30       PFLCNV: Turbulence data is being used w/o ADJ_U* option     SigA & SigW
+MX W403      30       PFLCNV: Turbulence data is being used w/o ADJ_U* option     SigA & SigW
+MX W403      30       PFLCNV: Turbulence data is being used w/o ADJ_U* option     SigA & SigW
+MX W394       1       METEXT: Met data may be from outdated version of AERMET:     No NAD/ADJ
+MX W403       1       PFLCNV: Turbulence data is being used w/o ADJ_U* option     SigA & SigW
